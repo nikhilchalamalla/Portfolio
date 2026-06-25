@@ -1,0 +1,84 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /MediaBox [0 0 595 842] /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 2056 >>
+stream
+BT
+/F1 10 Tf
+12 TL
+50 780 Td
+/F1 20 Tf
+(CHALAMALLA NIKHIL) Tj T*
+/F1 10 Tf
+(Email: nikhilchalamalla4@gmail.com | Phone: +91-8790353618) Tj T*
+(GitHub: github.com/nikhilchalamalla | LinkedIn: linkedin.com/in/chalamalla-nikhil/) Tj T*
+() Tj T*
+T*
+/F1 12 Tf
+(SUMMARY) Tj T*
+/F1 10 Tf
+(Full-Stack Developer with experience in building real-time scalable systems,) Tj T*
+(low-latency communication backends, and data science pipelines.) Tj T*
+() Tj T*
+T*
+/F1 12 Tf
+(TECHNICAL SKILLS) Tj T*
+/F1 10 Tf
+(- Languages: Java, JavaScript, Python, SQL) Tj T*
+(- Frameworks: Spring Boot, Node.js, Express.js, React.js, WebSockets) Tj T*
+(- Databases: MySQL, MongoDB) Tj T*
+(- Certifications: AWS Certified Solutions Architect - Associate) Tj T*
+() Tj T*
+T*
+/F1 12 Tf
+(EXPERIENCE) Tj T*
+/F1 10 Tf
+(Data Science Intern - InternsElite Edutech Pvt. Ltd \(Remote\) | Oct 2023 - Dec 2023) Tj T*
+(- Processed banking datasets using Python, reducing manual effort by ~30%.) Tj T*
+(- Optimized data preprocessing workflows, saving ~20% processing runtime.) Tj T*
+(- Cleaned 10K+ customer records for database consistency.) Tj T*
+() Tj T*
+T*
+/F1 12 Tf
+(PROJECTS) Tj T*
+/F1 10 Tf
+(AI-ML Powered Video Analytics & Interpretation | Nov 2025) Tj T*
+(- Full-stack video ingestion handling 100+ concurrent feeds and 1000+ req/day.) Tj T*
+(- Interactive React dashboard with Chart.js, reducing visualization latency by ~30%.) Tj T*
+(- Integrated MongoDB, improving data retrieval efficiency by ~25%.) Tj T*
+() Tj T*
+(Real-Time Chat Application | Dec 2025) Tj T*
+(- Production-grade 1-to-1 WebSockets messaging system with Spring Boot.) Tj T*
+(- Maintained bi-directional latency under 100ms with MySQL history logs.) Tj T*
+(- Secured private chat sessions using Spring Security authentication.) Tj T*
+() Tj T*
+T*
+/F1 12 Tf
+(EDUCATION) Tj T*
+/F1 10 Tf
+(- Lovely Professional University: B.Tech in CSE \(CGPA: 8.50\) | 2023 - Present) Tj T*
+(- Chaitanya Junior College: Intermediate \(84%\) | 2020 - 2022) Tj T*
+(- Zilla Praja Parishad Secondary School: SSC \(98%\) | 2019 - 2020) Tj T*
+ET
+endstream
+endobj
+xref
+0 5
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000290 00000 n 
+trailer
+<< /Size 5 /Root 1 0 R >>
+startxref
+2398
+%%EOF

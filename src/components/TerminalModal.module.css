@@ -1,0 +1,135 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(4, 7, 13, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  width: 100%;
+  max-width: 800px;
+  height: 520px;
+  background: #0d1117;
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(14, 165, 233, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: 'Fira Code', 'Courier New', monospace;
+}
+
+.header {
+  height: 42px;
+  background: #161b22;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  user-select: none;
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.redDot { background: #ff5f56; }
+.yellowDot { background: #ffbd2e; }
+.greenDot { background: #27c93f; }
+
+.title {
+  font-size: 0.82rem;
+  color: #8b949e;
+  letter-spacing: 0.05em;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: #8b949e;
+  font-size: 1.4rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.closeBtn:hover {
+  color: #f85149;
+}
+
+.body {
+  flex: 1;
+  padding: 1.25rem;
+  overflow-y: auto;
+  color: #c9d1d9;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.promptLine {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.promptUser { color: #58a6ff; font-weight: 600; }
+.promptSeparator { color: #8b949e; }
+.promptDir { color: #7ee787; }
+.promptSymbol { color: #d2a8ff; font-weight: 600; }
+.commandText { color: #f0f6fc; font-weight: 500; margin-left: 4px; }
+
+.outputBlock {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.inputForm {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #58a6ff;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.cmdGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+
+.greenText { color: #7ee787; }
+.cyanText { color: #58a6ff; }
+.goldText { color: #d2a8ff; }
+.dimText { color: #8b949e; }
+.redText { color: #f85149; }
+.highlightText { color: #f0f6fc; font-weight: 600; text-decoration: underline; }
+.link { color: #58a6ff; text-decoration: underline; }

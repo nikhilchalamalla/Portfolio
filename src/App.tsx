@@ -2,16 +2,23 @@ import React, { useState, useEffect } from "react";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { About } from "./components/About";
+import { Skills } from "./components/Skills";
+import { Experience } from "./components/Experience";
 import { Projects } from "./components/Projects";
+import { Certifications } from "./components/Certifications";
 import { Contact } from "./components/Contact";
 import { ThreeCanvas } from "./components/ThreeCanvas";
+import { TerminalModal } from "./components/TerminalModal";
+import { ResumeModal } from "./components/ResumeModal";
+import { portfolioData } from "./data/portfolioData";
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState("home");
+  const [terminalOpen, setTerminalOpen] = useState(false);
+  const [resumeOpen, setResumeOpen] = useState(false);
 
-  // Track scroll position to update active nav link
   useEffect(() => {
-    const sections = ["home", "about", "projects", "contact"];
+    const sections = ["home", "about", "skills", "experience", "projects", "certifications", "contact"];
     const observers = sections.map((id) => {
       const el = document.getElementById(id);
       if (!el) return null;
@@ -23,9 +30,8 @@ const App: React.FC = () => {
           }
         },
         {
-          // Trigger when section occupies 50% or more of the viewport
-          threshold: 0.35,
-          rootMargin: "-80px 0px 0px 0px", // Navbar offset
+          threshold: 0.25,
+          rootMargin: "-80px 0px 0px 0px",
         }
       );
 
@@ -43,30 +49,39 @@ const App: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey && e.key === "`") || (e.altKey && e.key.toLowerCase() === "t")) {
+        e.preventDefault();
+        setTerminalOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
     <div style={{ position: "relative", minHeight: "100vh" }}>
-      {/* 3D WebGL Constellation Background */}
       <ThreeCanvas />
 
-      {/* Floating Accent glow spots (Faint purple & blue behind sections) */}
       <div
         className="glow-spot"
         style={{
-          width: "50vw",
-          height: "50vw",
-          background: "radial-gradient(circle, var(--accent-cyan-glow) 0%, transparent 70%)",
-          top: "10vh",
+          width: "45vw",
+          height: "45vw",
+          background: "radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, transparent 70%)",
+          top: "5vh",
           right: "-10vw",
         }}
       />
       <div
         className="glow-spot"
         style={{
-          width: "60vw",
-          height: "60vw",
-          background: "radial-gradient(circle, var(--accent-purple-glow) 0%, transparent 70%)",
-          top: "120vh",
-          left: "-20vw",
+          width: "55vw",
+          height: "55vw",
+          background: "radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, transparent 70%)",
+          top: "130vh",
+          left: "-15vw",
         }}
       />
       <div
@@ -74,45 +89,89 @@ const App: React.FC = () => {
         style={{
           width: "50vw",
           height: "50vw",
-          background: "radial-gradient(circle, var(--accent-gold-glow) 0%, transparent 70%)",
-          top: "220vh",
+          background: "radial-gradient(circle, rgba(34, 197, 94, 0.08) 0%, transparent 70%)",
+          top: "260vh",
           right: "-15vw",
         }}
       />
 
-      {/* Navigation */}
-      <Navbar activeSection={activeSection} />
+      <Navbar
+        activeSection={activeSection}
+        onOpenTerminal={() => setTerminalOpen(true)}
+        onOpenResume={() => setResumeOpen(true)}
+      />
 
-      {/* Main Content Layout */}
       <main style={{ position: "relative", zIndex: 10 }}>
-        <Hero />
+        <Hero
+          onOpenTerminal={() => setTerminalOpen(true)}
+          onOpenResume={() => setResumeOpen(true)}
+        />
         <About />
+        <Skills />
+        <Experience />
         <Projects />
-        <Contact />
+        <Certifications />
+        <Contact onOpenResume={() => setResumeOpen(true)} />
       </main>
 
-      {/* Footer */}
       <footer
         style={{
           position: "relative",
           zIndex: 10,
-          backgroundColor: "var(--bg-primary)",
-          borderTop: "1px solid var(--card-border)",
+          backgroundColor: "#0b0f19",
+          borderTop: "1px solid rgba(255, 255, 255, 0.08)",
           padding: "2.5rem 0",
-          textAlign: "center",
-          color: "var(--text-muted)",
+          color: "#9ca3af",
           fontSize: "0.9rem",
         }}
       >
-        <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
-          <p>© {new Date().getFullYear()} Chalamalla Nikhil. All rights reserved.</p>
-          <p style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
-            Built with 
-            <span style={{ color: "#ef4444" }}>♥</span> 
-            using React, TypeScript & Three.js
-          </p>
+        <div
+          className="container"
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexWrap: "wrap",
+            gap: "1rem",
+          }}
+        >
+          <div>
+            <p style={{ fontWeight: 600, color: "#f3f4f6" }}>
+              {portfolioData.personalInfo.name} — Software Engineer
+            </p>
+            <p style={{ fontSize: "0.8rem", color: "#6b7280", marginTop: "2px" }}>
+              © {new Date().getFullYear()} All rights reserved. Built with React, TypeScript & Three.js.
+            </p>
+          </div>
+
+          <div style={{ display: "flex", gap: "1.25rem", fontSize: "0.85rem" }}>
+            <a href={portfolioData.personalInfo.github} target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+            <a href={portfolioData.personalInfo.linkedin} target="_blank" rel="noreferrer">
+              LinkedIn
+            </a>
+            <a href={portfolioData.personalInfo.leetcode} target="_blank" rel="noreferrer">
+              LeetCode
+            </a>
+            <button
+              onClick={() => setTerminalOpen(true)}
+              style={{
+                background: "none",
+                border: "none",
+                color: "#38bdf8",
+                cursor: "pointer",
+                fontWeight: 600,
+              }}
+            >
+              [ CLI Terminal ]
+            </button>
+          </div>
         </div>
       </footer>
+
+      <TerminalModal isOpen={terminalOpen} onClose={() => setTerminalOpen(false)} />
+      <ResumeModal isOpen={resumeOpen} onClose={() => setResumeOpen(false)} />
     </div>
   );
 };
